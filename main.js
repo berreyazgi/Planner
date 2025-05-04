@@ -1,0 +1,28 @@
+const noteGrid = document.querySelector(".note-grid");
+const addNoteButton = document.getElementById("addNote");
+
+const colors = ["#e0f7d4", "#ffd6d6", "#d0e6ff", "#fff9cc", "#e6ccff", "#ccf2ff"];
+
+addNoteButton.addEventListener("click", () => {
+  const note = document.createElement("div");
+  note.classList.add("note");
+  
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  note.style.backgroundColor = randomColor;
+
+  const today = new Date();
+  const date = today.toLocaleDateString();
+  const time = today.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+  note.innerHTML = `
+    <p class="date">${date}</p>
+    <h3>New Note</h3>
+    <p>This is a dynamically generated note.</p>
+    <p class="time">${time}</p>
+  `;
+
+  // Insert before the "+ New Note" button
+  noteGrid.insertBefore(note, addNoteButton);
+});
+
+

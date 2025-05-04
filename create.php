@@ -1,11 +1,15 @@
 <?php
 
 $connection = require_once './Connection.php';
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
 
+$title = trim($_POST['title'] ?? '');
+$description = trim($_POST['description'] ?? '');
 $id = $_POST['id'] ?? '';
+
+if(!$title || !$description){
+    header('Locartion: index.php?error=1');
+    exit;
+}
 
 if($id){
     $connection->updateNote( $_POST);
@@ -14,3 +18,4 @@ if($id){
 }
 
 header('Location: index.php'); 
+
