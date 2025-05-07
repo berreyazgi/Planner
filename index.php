@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
   </ul>
 </nav>
 
-<script src="script.js"></script> 
+
 
 <h1>My Notes</h1>
 <div class=".note-grid">
@@ -93,6 +93,6 @@ if (isset($_GET['id'])) {
         <?php endforeach; ?>
         </div>
         
-          
+        <script src="jsFiles/main.js"></script>     
 </body>
 </html>

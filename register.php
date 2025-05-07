@@ -106,6 +106,6 @@ $errors = [
 
     </div> 
 </div>
-<script src="register.js" defer></script>
+<script src="jsFiles/register.js" defer></script>
 </body>
 </html>
