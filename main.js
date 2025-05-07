@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function () {
 const noteGrid = document.querySelector(".note-grid");
 const addNoteButton = document.getElementById("addNote");
 
@@ -20,9 +21,15 @@ addNoteButton.addEventListener("click", () => {
     <p>This is a dynamically generated note.</p>
     <p class="time">${time}</p>
   `;
+    const newNoteBtn = document.getElementById("newNoteBtn");
+    const noteForm = document.getElementById("noteForm");
+
+    newNoteBtn.addEventListener("click", () => {
+    noteForm.classList.remove("hidden");
+    });
 
   // Insert before the "+ New Note" button
   noteGrid.insertBefore(note, addNoteButton);
 });
-
+});
 

@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
 
 <!--sidebar-html-->
 <nav class="sidebar">
-<div class="logo">My Planner</div>
+<div class="logo">Planner</div>
   <ul class="sidebar-top">
     <li><a href="#"><i class="bi bi-sticky"></i><span>Notes</span></a></li>
     <li><a href="#"><i class="bi bi-card-checklist"></i><span>To-Do List</span></a></li>
@@ -42,15 +42,17 @@ if (isset($_GET['id'])) {
   </ul>
 </nav>
 
-
-
-
-  
+<script src="script.js"></script> 
 
 <h1>My Notes</h1>
-<div> 
-<button id="show-note-form" class="add-note" >+ New Note</button>
-<script src="script.js"></script>
+<div class=".note-grid">
+    <button id="show-note-form" class="add-note" >+ New Note</button>
+
+    <div id="noteForm" class="note-form hidden">
+        <input type="text" id="noteTitle" placeholder="Note title" />
+        <textarea id="noteDesc" placeholder="Note Description"></textarea>
+     </div>
+     
         <?php if (isset($_GET['error'])): ?>
             <div style="color: red; margin-bottom: 10px;">
                 Add note failed. Please fill in all fields.
