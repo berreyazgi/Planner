@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Log Bar Chart</title>
+    <style>
+        canvas {
+            border: 1px solid #333;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align:center;">Pomodoro Log - Daily Count</h2>
+<canvas id="myChart" width="600" height="400"></canvas>
+
+<script>
+    // Örnek pomodoro verisi (PHP'den veya veritabanından alacağın veriye benzer yapı)
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+    const pomodoroCounts = [4, 6, 3, 5, 7]; // her gün kaç pomodoro yapıldı
+
+    const canvas = document.getElementById('myChart');
+    const ctx = canvas.getContext('2d');
+
+    // Grafik ayarları
+    const chartHeight = 300;
+    const chartWidth = 500;
+    const barWidth = 50;
+    const barSpacing = 30;
+    const maxValue = Math.max(...pomodoroCounts);
+    const scaleFactor = chartHeight / maxValue;
+
+    // X başlangıç noktası
+    let x = 50;
+
+    // Çubukları çiz
+    pomodoroCounts.forEach((count, index) => {
+        let barHeight = count * scaleFactor;
+
+        // Bar (çubuk)
+        ctx.fillStyle = '#509E2F'; // yeşil renk
+        ctx.fillRect(x, chartHeight - barHeight + 50, barWidth, barHeight);
+
+        // Etiket (gün)
+        ctx.fillStyle = '#000';
+        ctx.textAlign = 'center';
+        ctx.fillText(days[index], x + barWidth / 2, chartHeight + 70);
+
+        // Bar üstüne değer yaz
+        ctx.fillText(count, x + barWidth / 2, chartHeight - barHeight + 40);
+
+        x += barWidth + barSpacing;
+    });
+
+    // Y ekseni çizgisi
+    ctx.beginPath();
+    ctx.moveTo(40, 50);
+    ctx.lineTo(40, chartHeight + 50);
+    ctx.stroke();
+</script>
+
+</body>
+</html>

@@ -1,13 +1,13 @@
 <?php
 
-$connection = require_once './Connection.php';
+$connection = require_once (__DIR__. '/Connection.php');
 
 $title = trim($_POST['title'] ?? '');
 $description = trim($_POST['description'] ?? '');
 $id = $_POST['id'] ?? '';
 
 if(!$title || !$description){
-    header('Locartion: index.php?error=1');
+    header('Location: index.php?error=1');
     exit;
 }
 
@@ -17,5 +17,5 @@ if($id){
     $connection->addNote($_POST);
 }
 
-header('Location: index.php'); 
+header('Location: ../index.php'); 
 

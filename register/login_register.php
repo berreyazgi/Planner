@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once 'login.php';
+require_once (__DIR__. '/db_connectLogin.php');
 
 if(isset($_POST['register'])) {
   $email = $_POST['email'];
@@ -16,7 +16,7 @@ if(isset($_POST['register'])) {
     $conn->query("INSERT INTO users (email, name, password) VALUES ('$email', '$name', '$password')");
   }
 
-  header("Location: register.php");
+  header("Location: ./register.php");
   exit();
 }
 
@@ -35,18 +35,18 @@ if (isset($_POST['login'])) {
       if(!empty($_POST['remember'])){
         setcookie("user_email",$user['email'], time() + (86400 * 30), "/"); 
       }
-
-      header("Location: index.php");
-
+      header("Location: ../index.php");
+     
       $_SESSION['login_error'] = 'Incorrect email or password!';
       $_SESSION['active_form'] = 'login';
-
+      return false;
+      
     }
  }
 }
     $_SESSION['login_error'] = 'Incorrect email or password!';
     $_SESSION['active_form'] = 'login';
-    header("Location: register.php");
+    header("Location: ./register.php");
     exit();
 
 ?>

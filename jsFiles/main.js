@@ -1,6 +1,22 @@
-document.addEventListener("DOMContentLoaded", function () {
-const noteGrid = document.querySelector(".note-grid");
-const addNoteButton = document.getElementById("addNote");
+function toggleNoteForm() {
+  var element = document.getElementById("noteForm");4
+
+  element.classList.toggle("new-note");
+ // if (element.classList.contains("new-note")) {
+   // element.classList.remove("new-note");
+  //}
+}
+
+
+document.addEventListener("DOMContentLoaded", 
+  function () {
+const noteGrid = document.querySelector(".notes");
+const addNoteButton = document.getElementById("toggleNoteForm");
+const noteForm = document.getElementById("noteForm");
+
+addNoteButton.addEventListener("click", () => {
+        noteForm.classList.toggle("hidden");
+    });
 
 const colors = ["#e0f7d4", "#ffd6d6", "#d0e6ff", "#fff9cc", "#e6ccff", "#ccf2ff"];
 

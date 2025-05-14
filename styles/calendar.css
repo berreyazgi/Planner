@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #def2ed;
+  color: #2e2e2e;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 55px;
+  font-family: serif;
+}
+
+/* Setting */
+
+#setting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#break, #session {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 20px 8px;
+}
+
+#session-label, #break-label {
+  margin-bottom: 15px;
+  font-size: 17px;
+}
+
+#break-increment, #break-decrement,
+#session-increment, #session-decrement {
+  cursor: pointer;
+  width: 35px;
+  height: 22px;
+  border: none;
+  font-size: 14px;
+  background-color: #0E8388;
+  color: white;
+}
+
+#break-increment, #session-increment {
+  border-radius: 20px 20px 0 0;
+}
+
+#break-decrement, #session-decrement {
+  border-radius: 0 0 20px 20px;
+}
+
+#break-length, #session-length {
+  font-size: 18px;
+  background-color: white;
+  width: 35px;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  font-family: serif;
+}
+
+/* hide input number spin */
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* Timer */
+
+#timer-label {
+  font-size: 26px;
+  margin: 30px 0 18px;
+}
+
+#time-left {
+  font-size: 60px;
+  background-color: white;
+  border: 4px solid #0E8388;
+  border-radius: 10px;
+  padding: 8px 0;
+  text-align: center;
+  width: 200px;
+  font-family: serif;
+}
+
+/*Buttons */
+
+#button-container {
+ margin: 20px; 
+}
+
+#start_stop, #reset {
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  height: 35px;
+  line-height: 35px;
+  width: 65px;
+  margin: 0 8px;
+  background-color: #0E8388;
+  color: white;
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #start_stop:hover, #reset:hover,
+  #break-increment:hover, #break-decrement:hover,
+  #session-increment:hover, #session-decrement:hover {
+    background-color: #2E4F4F;
+  }
+}

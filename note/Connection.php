@@ -5,7 +5,7 @@ class Connection {
   public PDO $pdo;
 
   public function __construct() {
-    $this->pdo = new PDO('mysql:server=localhost;dbname=planner', 'root', '');
+    $this->pdo = new PDO('mysql:host=localhost;dbname=planner', 'root', '');
     $this->pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 

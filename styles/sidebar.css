@@ -1,9 +1,13 @@
+body{
+  display: flex;
+}
 .sidebar {
-  position: fixed;
+  position: relative;
   left: 0;
   top: 0;
   bottom: 0;
   width: 148px;
+  min-width: 148px;
   background-color: #fdfdfd;
   border-right: 1px solid #e0e0e0;
   display: flex;
